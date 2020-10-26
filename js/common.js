@@ -43,4 +43,21 @@ $(function() {
 			$('.ref-story-modal').find('.ci-outer').remove();
 		});
 	}
+
+	$('a#tawi-contact-toggle').on('click', function(e){
+		e.preventDefault();
+
+		$(this).toggleClass('close');
+		$('.tc-form').slideToggle();
+	});
+
+	$('li.button-container a').on('click', function(e){
+		e.preventDefault();
+		console.log($('#tawi-contact').offset().top);
+
+		$('html, body').animate({
+	        scrollTop: $('#tawi-contact').offset().top
+	    }, 500);
+
+	});
 });

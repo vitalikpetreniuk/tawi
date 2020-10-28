@@ -51,13 +51,38 @@ $(function() {
 		$('.tc-form').slideToggle();
 	});
 
-	$('li.button-container a').on('click', function(e){
-		e.preventDefault();
-		console.log($('#tawi-contact').offset().top);
+	
 
-		$('html, body').animate({
-	        scrollTop: $('#tawi-contact').offset().top
-	    }, 500);
 
+	$('.mobile-trigger').on('click', function(){
+		$('header').addClass('opened');
 	});
+	$('.site-nav-overlay').on('click', function(){
+		$('header').removeClass('opened');
+	});
+
+	if($(window).width()<1280)
+	{
+		$('li.button-container a').on('click', function(e){
+			e.preventDefault();
+			$('header').removeClass('opened');
+			console.log($('#tawi-contact').offset().top);
+
+			$('html, body').animate({
+		        scrollTop: $('#tawi-contact').offset().top
+		    }, 500);
+
+		});
+	}else
+	{
+		$('li.button-container a').on('click', function(e){
+			e.preventDefault();
+			console.log($('#tawi-contact').offset().top);
+
+			$('html, body').animate({
+		        scrollTop: $('#tawi-contact').offset().top
+		    }, 500);
+
+		});
+	}
 });
